@@ -1,0 +1,18 @@
+[
+  {
+    "id": 13860428,
+    "current_price": { "value": 12.32, "currency_code": "USD" }
+  },
+  {
+    "id": 54456119,
+    "current_price": { "value": 5.22, "currency_code": "USD" }
+  },
+  {
+    "id": 13264003,
+    "current_price": { "value": 17.34, "currency_code": "USD" }
+  },
+  {
+    "id": 12954218,
+    "current_price": { "value": 124.05, "currency_code": "USD" }
+  }
+]

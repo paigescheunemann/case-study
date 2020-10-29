@@ -1,0 +1,31 @@
+version: '3.7'
+
+volumes:
+  data:
+
+services:
+  casestudy:
+    image: casestudy
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    volumes: 
+      - .:/usr/src/app
+    links: 
+      - mongodb
+  mongodb:
+    image: mongo:4.2
+    ports:
+      - 27017:27017
+    volumes:
+      - data:/data/db
+  mongo_seed:
+    image: mongo:4.2
+    volumes:
+      - ./mongo-seed:/mongo-seed
+    depends_on: 
+      - mongodb
+    command:
+      /mongo-seed/mongo-seed.sh

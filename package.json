@@ -1,0 +1,23 @@
+{
+  "name": "case-study",
+  "version": "1.0.0",
+  "description": "Case Study API",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "https": "^1.0.0",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.10.11",
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "mocha": "^8.2.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Paige Scheunemann",
+  "license": "ISC"
+}
