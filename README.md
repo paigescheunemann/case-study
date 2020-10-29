@@ -26,27 +26,45 @@ Example: https://redsky.target.com/v3/pdp/tcin/13860428?excludes=taxonomy,price,
 - [Docker](https://www.docker.com/get-started) (includes Docker Compose on macOS)
 
 ### Starting and stopping the Docker containers
-Docker Compose will start the required containers with
-```docker-compose up```
+Docker-Compose will start the required containers with
+```
+docker-compose up
+```
 
 You may also run them in the background with 
-```docker-compose up -d```
+```
+docker-compose up -d
+```
 
 In this case you can stop running containers with
-``docker-compose down``
+```
+docker-compose down
+```
 
-This will start three containers: `mongodb` `case-study` and `mongo-seed`
+Docker-Compose will start three containers: 
+- `mongodb` 
+- `case-study` 
+- `mongo-seed`
 
 The `mongo-seed` container serves to seed the mongo db with test data, then it will exit. If restarted, it will drop the data in the prices collection and re-insert.
 
 ### API Documentation
 With the containers running, you can use the following requests to test locally:
 
-To make a GET request, use cURLs: 
-``curl --location --request GET 'http://localhost:3000/products/13860428'``
-``curl --location --request GET 'http://localhost:3000/products/54456119'``
-``curl --location --request GET 'http://localhost:3000/products/13264003'``
-``curl --location --request GET 'http://localhost:3000/products/12954218'``
+**To make a GET request, use cURLs:** 
+
+```
+curl --location --request GET 'http://localhost:3000/products/13860428'
+```
+```
+curl --location --request GET 'http://localhost:3000/products/54456119'
+```
+```
+curl --location --request GET 'http://localhost:3000/products/13264003'
+```
+```
+curl --location --request GET 'http://localhost:3000/products/12954218'
+```
 
 This will return a response in this format:
 
@@ -60,7 +78,7 @@ This will return a response in this format:
 }
 ```
 
-To make a PUT request to update price, use cURL:
+**To make a PUT request to update price, use cURL:**
 
 ```
 curl --location --request GET 'http://localhost:3000/products/13860428' \
@@ -76,6 +94,23 @@ curl --location --request GET 'http://localhost:3000/products/13860428' \
 ```
 
 An invalid request (one missing price data or with non-numeric price data) will be rejected
+
+# Development
+### Prerequisites 
+- [Docker](https://www.docker.com/get-started) (includes Docker Compose on macOS)
+- [npm](https://www.npmjs.com/get-npm)
+- [nvm](https://github.com/creationix/nvm) is useful for node version management
+
+Clone this repository, then run
+```
+nvm use
+npm install
+```
+
+Start the docker containers for local development with ``docker-compose up``
+
+*Note*
+For development without restarting the containers manually, change the `start` script in `package.json` to `nodemon index.js` - this will detect changes and reboot the app container autonmatically
 
 ## Future Plans
 - Write Tests
