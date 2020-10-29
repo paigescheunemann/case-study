@@ -78,23 +78,6 @@ This will return a response in this format:
 }
 ```
 
-# Development
-### Prerequisites 
-- [Docker](https://www.docker.com/get-started) (includes Docker Compose on macOS)
-- [npm](https://www.npmjs.com/get-npm)
-- [nvm](https://github.com/creationix/nvm) is useful for node version management
-
-Clone this repository, then run
-```
-nvm use
-npm install
-```
-
-Start the docker containers for local development with ``docker-compose up``
-
-*Note*
-For development without restarting the containers manually, change the `start` script in `package.json` to `nodemon index.js` - this will detect changes and reboot the app container autonmatically
-
 **To make a PUT request to update price, use cURL:**
 
 ```
@@ -111,6 +94,23 @@ curl --location --request GET 'http://localhost:3000/products/13860428' \
 ```
 
 An invalid request (one missing price data or with non-numeric price data) will be rejected
+
+# Development
+### Prerequisites 
+- [Docker](https://www.docker.com/get-started) (includes Docker Compose on macOS)
+- [npm](https://www.npmjs.com/get-npm)
+- [nvm](https://github.com/creationix/nvm) is useful for node version management
+
+Clone this repository, then run
+```
+nvm use
+npm install
+```
+
+Start the docker containers for local development with ``docker-compose up``
+
+*Note*
+For development without restarting the containers manually, change the `start` script in `package.json` to `nodemon index.js` - this will detect changes and reboot the app container autonmatically
 
 ## Future Plans
 - Write Tests
